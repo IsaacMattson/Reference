@@ -35,20 +35,29 @@ def getAuthor():
     return input_
 
 def getTitle():
-    pass
+    global pageURL
+    page = requests.get(pageURL)
+    soup = bs4(page.text, 'html.parser')
+    return  soup.title.text
 
 def getPageURL():
-    pass
+    global pageURL
+
+    input_ = getUserInput("Enter the URL: ")
+    pageURL = input_
+    return input_
 
 #Gets the URL using requests and Bs4
 def getHTML():
     global pageURL
+    global title
 
     input_ = getUserInput("Enter the URL: ")
     pageURL = input_
 
     page = requests.get(input_)
     soup = bs4(page.text, 'html.parser')
+    title = soup.title.text
 
 #This method is for obtaining user input from the cli, 
 #it takes the text to display to user as a parameter and returns the user input.
@@ -58,6 +67,12 @@ def getUserInput(_text):
     return input_
 
 def main(): #this is the main method, it will be called when the program is run.
-    getHTML()
+    print(getAuthor())
+    print(getDatePublished())
+    print(getDateAccessed())
+    getPageURL()
+    print(getTitle())
+    print(pageURL)
+
 main()
 
