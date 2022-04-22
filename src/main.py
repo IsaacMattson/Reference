@@ -77,7 +77,7 @@ def main(): #this is the main method, it will be called when the program is run.
     getPageURL()
     title = (getTitle())
 
-    output = "{}.({}).\x1B[3m{}\x1B[0m.\nRetrived {} From {}".format(author, datePublished,title, dateAccesed, pageURL)
+    output = "{}.({}).\x1B[3m{}\x1B[0m.\n   Retrived {} From {}".format(author, datePublished,title, dateAccesed, pageURL)
     print(output)
 
 main()
