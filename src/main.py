@@ -7,12 +7,16 @@ from datetime import date
 
 pageHTML = "" #this is the url of the page to be Used for reference.
 
+output = ""
+
 #All of the elements for a reference, each will have a assigned function that will asign its value.
 dateAccesed = ""
 datePublished = ""
 author = ""
 title = ""
 pageURL = ""
+
+
 
 #these get the data listed in name, and return it.
 def getDatePublished():
@@ -67,12 +71,14 @@ def getUserInput(_text):
     return input_
 
 def main(): #this is the main method, it will be called when the program is run.
-    print(getAuthor())
-    print(getDatePublished())
-    print(getDateAccessed())
+    author = (getAuthor())
+    datePublished = (getDatePublished())
+    dateAccesed = (getDateAccessed())
     getPageURL()
-    print(getTitle())
-    print(pageURL)
+    title = (getTitle())
+
+    output = "{}.({}).\x1B[3m{}\x1B[0m.n\Retrived {} From {}".format(author, datePublished,title, dateAccesed, pageURL)
+    print(output)
 
 main()
 
