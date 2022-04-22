@@ -1,0 +1,1 @@
+#functions nessasry to getting content from the website
