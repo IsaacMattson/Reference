@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup as bs4
 from html.parser import HTMLParser
 from datetime import date
 import website
+import os
 
 running = True
 ref = ""
@@ -14,7 +15,7 @@ def helpCommand():
     print("exit - exits the program")
     print("getweb - gets the data from a webpage")
     print("getbook - gets the data from a book(not implemented)")
-    print("license - displays the license(not implemented)")
+    print("license - displays the license")
     print("version - displays the version(not implemented)\n\n")
 def exitCommand():
     running = False
@@ -25,7 +26,12 @@ def getWebCommand():
 def getBookCommand():
     pass
 def licenseCommand():
-    pass
+    path = os.path.dirname(__file__)
+    print(os.path.split(path)[0])
+    print(open(os.path.join(os.path.split(path)[0], "LICENSE"), "r").read())
+    #close the license file after it is read.
+    open(os.path.join(os.path.split(path)[0], "LICENSE"), "r").close()
+    
 def versionCommand():
     pass
 
